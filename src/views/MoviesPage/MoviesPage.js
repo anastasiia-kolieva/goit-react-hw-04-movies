@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import moviesApi from '../services/movies-api';
+import moviesApi from '../../services/movies-api';
+import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [searchWord, setSearchWord] = useState('');
@@ -26,8 +27,9 @@ export default function MoviesPage() {
 
   return (
     <>
-      <form onSubmit={handelSubmit}>
+      <form onSubmit={handelSubmit} className={s.form}>
         <input
+          className={s.input}
           type="text"
           autoComplete="off"
           autoFocus
@@ -35,8 +37,8 @@ export default function MoviesPage() {
           value={searchWord}
           onChange={handlerChange}
         />
-        <button type="submit">
-          <span>Search</span>
+        <button type="submit" className={s.button}>
+          <span className={s.buttonText}>Search</span>
         </button>
       </form>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import moviesApi from '../services/movies-api';
+import moviesApi from '../../services/movies-api';
+import s from './HomePage.module.css';
 
 export default function HomePage() {
   const [trendMovies, setTrendMovies] = useState(null);
@@ -13,7 +14,9 @@ export default function HomePage() {
       {trendMovies && (
         <ul>
           {trendMovies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id} className={s.li}>
+              {movie.title}
+            </li>
           ))}
         </ul>
       )}
