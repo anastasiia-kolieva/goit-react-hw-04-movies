@@ -13,6 +13,10 @@ export default function MoviesPage() {
   const handelSubmit = event => {
     event.preventDefault();
 
+    if (!searchWord) {
+      return;
+    }
+
     moviesApi
       .fetchMoviesByWord(searchWord)
       .then(data => setMoviesArray(data.results))
@@ -45,7 +49,9 @@ export default function MoviesPage() {
       {moviesArray.length > 0 && (
         <ul>
           {moviesArray.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id} className={s.li}>
+              {movie.title}
+            </li>
           ))}
         </ul>
       )}

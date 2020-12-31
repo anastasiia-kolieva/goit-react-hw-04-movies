@@ -20,3 +20,9 @@
 .buttonText {
   font-size: 16px;
 }
+
+.li {
+  font-size: 18px;
+  font-weight: 450;
+  padding-bottom: 12px;
+}
