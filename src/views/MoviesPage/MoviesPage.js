@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 import moviesApi from '../../services/movies-api';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
+  const { url } = useRouteMatch();
   const [searchWord, setSearchWord] = useState('');
   const [moviesArray, setMoviesArray] = useState([]);
 
@@ -50,7 +52,7 @@ export default function MoviesPage() {
         <ul>
           {moviesArray.map(movie => (
             <li key={movie.id} className={s.li}>
-              {movie.title}
+              <Link to={`${url}/${movie.id}`}>{movie.title}</Link>
             </li>
           ))}
         </ul>
