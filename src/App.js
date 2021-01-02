@@ -3,6 +3,7 @@ import Container from './components/Container/Container';
 import AppBar from './components/Appbar/Appbar';
 import HomePage from './views/HomePage/HomePage';
 import MoviesPage from './views/MoviesPage/MoviesPage';
+import MovieDetailsPage from './views/MovieDetailsPage/MovieDetailsPage';
 import NotFoundView from './views/NotFoundView';
 
 export default function App() {
@@ -17,6 +18,10 @@ export default function App() {
 
         <Route exact path="/movies">
           <MoviesPage />
+        </Route>
+
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
         </Route>
 
         <Route>

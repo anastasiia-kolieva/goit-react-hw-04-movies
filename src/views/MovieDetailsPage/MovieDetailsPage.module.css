@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+}
+
+.poster {
+  padding: 10px 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 15px;
+}
+
+.paragraph_title {
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 15px;
+}

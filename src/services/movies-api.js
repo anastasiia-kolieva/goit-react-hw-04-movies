@@ -13,9 +13,16 @@ function fetchMoviesByWord(searchWord) {
   ).then(responce => responce.json());
 }
 
+function fetchMoviesDetails(movieId) {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${keyApi}&language=en-US`,
+  ).then(responce => responce.json());
+}
+
 const api = {
   fetchTrendMovies,
   fetchMoviesByWord,
+  fetchMoviesDetails,
 };
 
 export default api;

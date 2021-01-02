@@ -16,7 +16,7 @@ export default function HomePage() {
         <ul>
           {trendMovies.map(movie => (
             <li key={movie.id} className={s.li}>
-              <Link to={`movie/${movie.id}`}>{movie.title}</Link>
+              <Link to={`movies/${movie.id}`}>{movie.title}</Link>
             </li>
           ))}
         </ul>
