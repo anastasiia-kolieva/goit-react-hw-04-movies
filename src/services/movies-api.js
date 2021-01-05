@@ -19,10 +19,17 @@ function fetchMoviesDetails(movieId) {
   ).then(responce => responce.json());
 }
 
+function getMoviesCredits(movieId) {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${keyApi}&language=en-US`,
+  ).then(responce => responce.json());
+}
+
 const api = {
   fetchTrendMovies,
   fetchMoviesByWord,
   fetchMoviesDetails,
+  getMoviesCredits,
 };
 
 export default api;

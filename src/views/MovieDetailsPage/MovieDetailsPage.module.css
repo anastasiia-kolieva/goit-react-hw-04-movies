@@ -1,5 +1,12 @@
 .wrapper {
   display: flex;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2a363b;
+}
+
+.adition_info_wrapper {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2a363b;
 }
 
 .poster {
@@ -17,4 +24,17 @@
   font-size: 18px;
   font-weight: 600;
   padding-left: 15px;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 16px;
+  font-weight: 600;
+  color: #2a363b;
+  font-size: 18px;
+}
+
+.activeLink {
+  color: #f842da;
 }
