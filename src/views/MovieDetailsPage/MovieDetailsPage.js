@@ -7,7 +7,7 @@ import s from './MovieDetailsPage.module.css';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
-  const { url } = useRouteMatch();
+  const { url, path } = useRouteMatch();
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
@@ -61,10 +61,10 @@ export default function MovieDetailsPage() {
         </>
       )}
 
-      <Route path={`${url}/cast`}>
+      <Route path={`${path}/cast`}>
         {movieDetails && <Cast movieId={movieId} />}
       </Route>
-      <Route path={`${url}/reviews`}>
+      <Route path={`${path}/reviews`}>
         {movieDetails && <Reviews movieId={movieId} />}
       </Route>
     </>

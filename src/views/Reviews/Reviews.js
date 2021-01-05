@@ -11,13 +11,16 @@ export default function Reviews({ movieId }) {
 
   return (
     <>
-      {rewievs &&
+      {rewievs.length > 0 ? (
         rewievs.map(item => (
           <ul key={item.id} className={s.list}>
             <li className={s.title}>{item.author}</li>
             <li className={s.text}>{item.content}</li>
           </ul>
-        ))}
+        ))
+      ) : (
+        <h2 className={s.title}>We do not have any rewievs for this movie</h2>
+      )}
     </>
   );
 }
