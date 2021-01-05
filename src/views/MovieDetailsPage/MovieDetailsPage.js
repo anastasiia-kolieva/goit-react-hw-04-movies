@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, NavLink, useRouteMatch, Route } from 'react-router-dom';
 import Cast from '../Cast/Cast';
+import Reviews from '../Reviews/Reviews';
 import moviesApi from '../../services/movies-api';
 import s from './MovieDetailsPage.module.css';
 
@@ -61,11 +62,11 @@ export default function MovieDetailsPage() {
       )}
 
       <Route path={`${url}/cast`}>
-        <Cast movieId={movieId} />
+        {movieDetails && <Cast movieId={movieId} />}
       </Route>
-      {/* <Route path={`${url}/reviews`}>
-      <Reviews/>
-      </Route> */}
+      <Route path={`${url}/reviews`}>
+        {movieDetails && <Reviews movieId={movieId} />}
+      </Route>
     </>
   );
 }
