@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams, NavLink, useRouteMatch, Route } from 'react-router-dom';
-import Cast from '../Cast/Cast';
-import Reviews from '../Reviews/Reviews';
+import Loader from 'react-loader-spinner';
+// import Cast from '../Cast/Cast';
+// import Reviews from '../Reviews/Reviews';
 import moviesApi from '../../services/movies-api';
 import s from './MovieDetailsPage.module.css';
+
+const Cast = lazy(() => import('../Cast/Cast'));
+const Reviews = lazy(() => import('../Reviews/Reviews'));
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -61,12 +65,18 @@ export default function MovieDetailsPage() {
         </>
       )}
 
-      <Route path={`${path}/cast`}>
-        {movieDetails && <Cast movieId={movieId} />}
-      </Route>
-      <Route path={`${path}/reviews`}>
-        {movieDetails && <Reviews movieId={movieId} />}
-      </Route>
+      <Suspense
+        fallback={
+          <Loader type="Hearts" color="#f842da" height={80} width={80} />
+        }
+      >
+        <Route path={`${path}/cast`}>
+          {movieDetails && <Cast movieId={movieId} />}
+        </Route>
+        <Route path={`${path}/reviews`}>
+          {movieDetails && <Reviews movieId={movieId} />}
+        </Route>
+      </Suspense>
     </>
   );
 }
