@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { withQuicklink } from 'quicklink/dist/react/hoc.js';
 import Loader from 'react-loader-spinner';
 import Container from './components/Container/Container';
 import AppBar from './components/Appbar/Appbar';
@@ -14,6 +15,10 @@ const MovieDetailsPage = lazy(() =>
   import('./views/MovieDetailsPage/MovieDetailsPage'),
 );
 const NotFoundView = lazy(() => import('./views/NotFoundView'));
+
+const options = {
+  origins: [],
+};
 
 export default function App() {
   return (
@@ -30,9 +35,13 @@ export default function App() {
             <HomePage />
           </Route>
 
-          <Route exact path="/movies">
-            <MoviesPage />
-          </Route>
+          <Route
+            exact
+            path="/movies"
+            component={withQuicklink(MoviesPage, options)}
+          />
+          {/* <MoviesPage />
+          </Route> */}
 
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
