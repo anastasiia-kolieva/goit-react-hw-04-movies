@@ -1,33 +1,34 @@
 // ключ API
 const keyApi = '35d3949b155dd879cc4fbd73961c631e';
+const BASE_URL = 'https://api.themoviedb.org/3';
 
 function fetchTrendMovies() {
   return fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${keyApi}`,
+    `${BASE_URL}/trending/movie/day?api_key=${keyApi}`,
   ).then(responce => responce.json());
 }
 
 function fetchMoviesByWord(searchWord) {
   return fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${keyApi}&query=${searchWord}&page=1`,
+    `${BASE_URL}/search/movie?api_key=${keyApi}&query=${searchWord}&page=1`,
   ).then(responce => responce.json());
 }
 
 function fetchMoviesDetails(movieId) {
   return fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${keyApi}&language=en-US`,
+    `${BASE_URL}/movie/${movieId}?api_key=${keyApi}&language=en-US`,
   ).then(responce => responce.json());
 }
 
 function getMoviesCredits(movieId) {
   return fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${keyApi}&language=en-US`,
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${keyApi}&language=en-US`,
   ).then(responce => responce.json());
 }
 
 function getMovieReviews(movieId) {
   return fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${keyApi}&language=en-US`,
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${keyApi}&language=en-US`,
   ).then(responce => responce.json());
 }
 

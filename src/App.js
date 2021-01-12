@@ -1,20 +1,26 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { withQuicklink } from 'quicklink/dist/react/hoc.js';
 import Loader from 'react-loader-spinner';
 import Container from './components/Container/Container';
 import AppBar from './components/Appbar/Appbar';
+import {
+  HomePage,
+  MoviesPage,
+  MovieDetailsPage,
+  NotFoundView,
+} from './imports/imports';
 // import HomePage from './views/HomePage/HomePage';
 // import MoviesPage from './views/MoviesPage/MoviesPage';
 // import MovieDetailsPage from './views/MovieDetailsPage/MovieDetailsPage';
 // import NotFoundView from './views/NotFoundView';
 
-const HomePage = lazy(() => import('./views/HomePage/HomePage.js'));
-const MoviesPage = lazy(() => import('./views/MoviesPage/MoviesPage'));
-const MovieDetailsPage = lazy(() =>
-  import('./views/MovieDetailsPage/MovieDetailsPage'),
-);
-const NotFoundView = lazy(() => import('./views/NotFoundView'));
+// const HomePage = lazy(() => import('./views/HomePage/HomePage.js'));
+// const MoviesPage = lazy(() => import('./views/MoviesPage/MoviesPage'));
+// const MovieDetailsPage = lazy(() =>
+//   import('./views/MovieDetailsPage/MovieDetailsPage'),
+// );
+// const NotFoundView = lazy(() => import('./views/NotFoundView'));
 
 const options = {
   origins: [],
@@ -47,7 +53,7 @@ export default function App() {
             <MovieDetailsPage />
           </Route>
 
-          <Route>
+          <Route path="/">
             <NotFoundView />
           </Route>
         </Switch>
